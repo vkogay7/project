@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS passenger
+(
+    id_user  INTEGER PRIMARY KEY AUTOINCREMENT,
+    name text
+);
