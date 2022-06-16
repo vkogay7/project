@@ -51,12 +51,13 @@ GET http://localhost:3000/articles/33
 
 ### Create New Article
 
-POST http://localhost:3000/articles
+POST http://localhost:3000/flights
 Content-Type: application/json
 
 {
-  "title": "abc",
-  "text": "ahoj"
+  "date": "abc",
+  "status": "ahoj",
+  "capacity": 3
 }
 
 <> 2022-02-21T145145.201.json
