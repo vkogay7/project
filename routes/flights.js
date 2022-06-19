@@ -2,26 +2,13 @@ const express = require("express");
 const router = express.Router();
 const flightService = require('../service/flights-service')
 
-const flights = [
-    {
-        id_flight: 10,
-        title: "Ethereum",
-        text: "How are you?",
-    },
-    {
-        id_flight: 22,
-        title: "Bitcoin",
-        text: "How do you do?",
-    },
-];
-
-router.get('/flights', async (req, res) => {
+router.get('/', async (req, res) => {
     const order = req.query.order;
     const flights = await flightService.getAll(order);
     res.json(flights);
 })
 
-router.get('/flights/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const id = parseInt(req.params.id);
     const flight = await flightService.getById(id);
 
@@ -32,7 +19,7 @@ router.get('/flights/:id', async (req, res) => {
     }
 })
 
-router.post('/flights/', async (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body;
 
     if (
@@ -48,7 +35,7 @@ router.post('/flights/', async (req, res) => {
     res.status(201).json(flight);
 })
 
-router.put('/flights/:id_flight', (req, res) => {
+router.put('/flights/:id', (req, res) => {
     const data = req.body;
     const id = parseInt(req.params.id);
 
@@ -61,7 +48,7 @@ router.put('/flights/:id_flight', (req, res) => {
         return;
     }
 
-    const flight = flights.find(flight => flight.id_flight === id);
+    const flight = flights.find(flight => flight.id === id);
 
     if (flight === undefined) {
         res.status(404).send("Not found")
