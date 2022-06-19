@@ -9,7 +9,7 @@ GET http://localhost:3000
 
 ### All articles
 
-GET http://localhost:3000/articles?order=title
+GET http://localhost:3000/flights
 
 <> 2022-02-21T150421.200.json
 <> 2022-02-21T150411.200.json

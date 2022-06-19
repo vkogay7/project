@@ -2,13 +2,26 @@ const express = require("express");
 const router = express.Router();
 const flightService = require('../service/flights-service')
 
-router.get('/', async (req, res) => {
+const flights = [
+    {
+        id_flight: 10,
+        title: "Ethereum",
+        text: "How are you?",
+    },
+    {
+        id_flight: 22,
+        title: "Bitcoin",
+        text: "How do you do?",
+    },
+];
+
+router.get('/flights', async (req, res) => {
     const order = req.query.order;
     const flights = await flightService.getAll(order);
     res.json(flights);
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/flights/:id', async (req, res) => {
     const id = parseInt(req.params.id);
     const flight = await flightService.getById(id);
 
@@ -19,7 +32,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/flights/', async (req, res) => {
     const data = req.body;
 
     if (
@@ -35,7 +48,7 @@ router.post('/', async (req, res) => {
     res.status(201).json(flight);
 })
 
-router.put('/:id_flight', (req, res) => {
+router.put('/flights/:id_flight', (req, res) => {
     const data = req.body;
     const id = parseInt(req.params.id);
 
@@ -61,7 +74,7 @@ router.put('/:id_flight', (req, res) => {
     res.status(202).json(flight);
 })
 
-router.delete('/:id_flight', (req, res) => {
+router.delete('/flights/:id_flight', (req, res) => {
     const id = parseInt(req.params.id);
     const index = flights.findIndex(flight => flight.id_fligh === id);
 
