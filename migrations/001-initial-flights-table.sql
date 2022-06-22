@@ -1,9 +1,17 @@
 CREATE TABLE IF NOT EXISTS flights
 (
-    id_flight    INTEGER PRIMARY KEY AUTOINCREMENT,
-    date text,
-    capacity INTEGER,
-    status text,
-    passenger_id text,
-    reservation_id text
-)
+    `id_flight` INT NOT NULL PRIMARY KEY ,
+    `date` DATETIME NOT NULL DEFAULT NULL,
+    `capacity` INT DEFAULT NULL,
+    `id_passenger` INT,
+    id_reservation INT,
+    id_notification INT,
+    FOREIGN KEY (id_passenger)
+        REFERENCES passenger (id_passenger),
+    FOREIGN KEY (id_reservation)
+        REFERENCES reservation (id_reservation),
+    FOREIGN KEY (id_notification)
+        REFERENCES notification (id_notification)
+
+
+);
