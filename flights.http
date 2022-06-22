@@ -29,7 +29,7 @@ GET http://localhost:3000/flights?order=status
 
 ### Fetch Existing article
 
-GET http://localhost:3000/flights/1
+GET http://localhost:3000/flights/2
 Accept: application/json
 
 <> 2022-02-21T143810.200.json
@@ -74,7 +74,7 @@ Content-Type: application/json
 
 ### Update existing article
 
-PUT http://localhost:3000/flights/1
+PUT http://localhost:3000/flights/2
 Content-Type: application/json
 
 {
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 ### Delete Existing article
 
-DELETE http://localhost:3000/flights/1
+DELETE http://localhost:3000/flights/2
 Accept: application/json
 
 ### Delete Nonexisting article
