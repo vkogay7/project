@@ -1287,208 +1287,196 @@
     <table id="473" parent="163" name="flights"/>
     <table id="474" parent="163" name="migrations"/>
     <table id="475" parent="163" name="notification"/>
-    <table id="476" parent="163" name="passenger"/>
-    <table id="477" parent="163" name="reservation"/>
-    <table id="478" parent="163" name="secretary"/>
-    <table id="479" parent="163" name="sqlite_master">
+    <table id="476" parent="163" name="reservation"/>
+    <table id="477" parent="163" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="480" parent="163" name="sqlite_sequence">
+    <table id="478" parent="163" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="481" parent="163" name="technician"/>
-    <column id="482" parent="473" name="id_flight">
+    <table id="479" parent="163" name="users"/>
+    <column id="480" parent="473" name="id_flight">
       <DataType>INT|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="483" parent="473" name="date">
+    <column id="481" parent="473" name="date">
       <DataType>DATETIME|0s</DataType>
       <DefaultExpression>NULL</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="484" parent="473" name="capacity">
+    <column id="482" parent="473" name="capacity">
       <DataType>INT|0s</DataType>
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
     </column>
-    <column id="485" parent="473" name="id_passenger">
+    <column id="483" parent="473" name="id_passenger">
       <DataType>INT|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="486" parent="473" name="id_reservation">
+    <column id="484" parent="473" name="id_reservation">
       <DataType>INT|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="487" parent="473" name="id_notification">
+    <column id="485" parent="473" name="id_notification">
       <DataType>INT|0s</DataType>
       <Position>6</Position>
     </column>
-    <foreign-key id="488" parent="473">
+    <foreign-key id="486" parent="473">
       <ColNames>id_passenger</ColNames>
       <RefColNames>id_passenger</RefColNames>
       <RefTableName>passenger</RefTableName>
     </foreign-key>
-    <foreign-key id="489" parent="473">
+    <foreign-key id="487" parent="473">
       <ColNames>id_reservation</ColNames>
       <RefColNames>id_reservation</RefColNames>
       <RefTableName>reservation</RefTableName>
     </foreign-key>
-    <foreign-key id="490" parent="473">
+    <foreign-key id="488" parent="473">
       <ColNames>id_notification</ColNames>
       <RefColNames>id_notification</RefColNames>
       <RefTableName>notification</RefTableName>
     </foreign-key>
-    <index id="491" parent="473" name="sqlite_autoindex_flights_1">
+    <index id="489" parent="473" name="sqlite_autoindex_flights_1">
       <ColNames>id_flight</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="492" parent="473">
+    <key id="490" parent="473">
       <ColNames>id_flight</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_flights_1</UnderlyingIndexName>
     </key>
-    <column id="493" parent="474" name="id">
+    <column id="491" parent="474" name="id">
       <DataType>INTEGER|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="494" parent="474" name="name">
+    <column id="492" parent="474" name="name">
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="495" parent="474" name="up">
+    <column id="493" parent="474" name="up">
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="496" parent="474" name="down">
+    <column id="494" parent="474" name="down">
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <key id="497" parent="474">
+    <key id="495" parent="474">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="498" parent="475" name="id_notification">
+    <column id="496" parent="475" name="id_notification">
       <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="499" parent="475" name="status">
+    <column id="497" parent="475" name="status">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </column>
-    <key id="500" parent="475">
+    <key id="498" parent="475">
       <ColNames>id_notification</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="501" parent="476" name="id_passenger">
+    <column id="499" parent="476" name="id_reservation">
       <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="502" parent="476" name="name">
-      <DataType>text|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <key id="503" parent="476">
-      <ColNames>id_passenger</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="504" parent="477" name="id_reservation">
-      <AutoIncrement>1</AutoIncrement>
-      <DataType>INTEGER|0s</DataType>
-      <Position>1</Position>
-    </column>
-    <column id="505" parent="477" name="date">
+    <column id="500" parent="476" name="date">
       <DataType>datetime|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="506" parent="477" name="capacity">
+    <column id="501" parent="476" name="capacity">
       <DataType>INTEGER|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="507" parent="477" name="status">
+    <column id="502" parent="476" name="status">
       <DataType>text|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="508" parent="477" name="id_passenger">
+    <column id="503" parent="476" name="id_passenger">
       <DataType>INT|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="509" parent="477" name="id_notification">
+    <column id="504" parent="476" name="id_notification">
       <DataType>INT|0s</DataType>
       <Position>6</Position>
     </column>
-    <foreign-key id="510" parent="477">
+    <foreign-key id="505" parent="476">
       <ColNames>id_passenger</ColNames>
       <RefColNames>id_passenger</RefColNames>
       <RefTableName>passenger</RefTableName>
     </foreign-key>
-    <foreign-key id="511" parent="477">
+    <foreign-key id="506" parent="476">
       <ColNames>id_notification</ColNames>
       <RefColNames>id_notification</RefColNames>
       <RefTableName>notification</RefTableName>
     </foreign-key>
-    <key id="512" parent="477">
+    <key id="507" parent="476">
       <ColNames>id_reservation</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="513" parent="478" name="id_secretary">
-      <AutoIncrement>1</AutoIncrement>
-      <DataType>INTEGER|0s</DataType>
-      <Position>1</Position>
-    </column>
-    <column id="514" parent="478" name="name">
-      <DataType>text|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <key id="515" parent="478">
-      <ColNames>id_secretary</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="516" parent="479" name="type">
+    <column id="508" parent="477" name="type">
       <DataType>text|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="517" parent="479" name="name">
+    <column id="509" parent="477" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="518" parent="479" name="tbl_name">
+    <column id="510" parent="477" name="tbl_name">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="519" parent="479" name="rootpage">
+    <column id="511" parent="477" name="rootpage">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="520" parent="479" name="sql">
+    <column id="512" parent="477" name="sql">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="521" parent="480" name="name">
+    <column id="513" parent="478" name="name">
       <Position>1</Position>
     </column>
-    <column id="522" parent="480" name="seq">
+    <column id="514" parent="478" name="seq">
       <Position>2</Position>
     </column>
-    <column id="523" parent="481" name="id_technician">
-      <AutoIncrement>1</AutoIncrement>
-      <DataType>INTEGER|0s</DataType>
+    <column id="515" parent="479" name="id_user">
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="524" parent="481" name="name">
-      <DataType>text|0s</DataType>
+    <column id="516" parent="479" name="username">
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <key id="525" parent="481">
-      <ColNames>id_technician</ColNames>
+    <column id="517" parent="479" name="password">
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="518" parent="479" name="role">
+      <DataType>TEXT|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <index id="519" parent="479" name="sqlite_autoindex_users_1">
+      <ColNames>id_user</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="520" parent="479">
+      <ColNames>id_user</ColNames>
       <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
