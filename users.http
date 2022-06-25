@@ -37,12 +37,13 @@ GET http://localhost:3000/flights/33
 
 ### Create New Article
 
-POST http://localhost:3000/flights
+POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "status": "ahoj",
-  "capacity": 3
+  "username": "forth",
+  "password": "qwe",
+  "role": "user"
 }
 
 <> 2022-02-21T145145.201.json
@@ -88,7 +89,7 @@ Content-Type: application/json
 
 ### Delete Existing article
 
-DELETE http://localhost:3000/flights/2
+DELETE http://localhost:3000/
 Accept: application/json
 
 ### Delete Nonexisting article

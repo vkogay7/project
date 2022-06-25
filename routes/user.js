@@ -21,7 +21,7 @@ router.get('/:username', async (req, res) => {
 })
 
 
-router.post('/api/users', async (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body;
 
 
@@ -32,7 +32,7 @@ router.post('/api/users', async (req, res) => {
 
 
 //Secretary (passenger id) Technician(capacity,status)
-router.put('/api/users/:id', async (req, res) => {
+router.put('/:username', async (req, res) => {
     const data = req.body;
     const username = parseInt(req.params.username);
 
@@ -47,7 +47,7 @@ router.put('/api/users/:id', async (req, res) => {
     res.status(202).json(flight);
 })
 
-router.delete('/api/users/:id', async (req, res) => {
+router.delete('/:username', async (req, res) => {
     const username = parseInt(req.params.username);
     await userService.deleteUser(username); //TODO
     res.status(204).send("No Content");

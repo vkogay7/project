@@ -102,7 +102,7 @@ Content-Type: application/json
 
 ### Delete Existing article
 
-DELETE http://localhost:3000/flights/2
+DELETE http://localhost:3000/flights/1
 Accept: application/json
 
 ### Delete Nonexisting article

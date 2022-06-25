@@ -26,24 +26,22 @@ class UserService {
     async createUser(user){
 
         const salt = genSaltSync(10);
-        const password = bcrypt.hashSync(req.body.password, salt)
+        //const password = bcrypt.hashSync(req.body.password, salt)
         const result = await database().run(
             "INSERT INTO users (username, password, role) VALUES (?,?,?)",
             user.username,
-            password,
+            user.password,
             user.role
         );
         return await this.getByUsername(result.lastID);
         };
 
-
-    async singup (username,password,role){
-        database().get()(
-            "SELECT username,role FROM users WHERE username =?",
-            username
-        )
+    async deleteUser(username){
+        await database().run(
+            "DELETE FROM users WHERE id_user = ?",
+            id_user
+        );
     }
-
     generateToken(user) {
         const tokenPayload = {
             username: user.username,
