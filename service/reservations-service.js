@@ -8,30 +8,30 @@ class ReservationService {
         let orderByColumn = order === "status" ? "status" : "id_reservation";
 
         return await database().all(
-            "SELECT * FROM reservation ORDER BY " + orderByColumn
+            "SELECT * FROM reservations ORDER BY " + orderByColumn
         );
     }
 
     async getById(id_reservation) {
         return await database().get(
-            "SELECT * FROM reservation WHERE id_reservation = ?",
+            "SELECT * FROM reservations WHERE id_reservation = ?",
             id_reservation
         );
     }
 
     async create(reservation) {
         const result = await database().run(
-            "INSERT INTO reservation (capacity, status) VALUES (?,?)",
-            reservation.capacity,
-            reservation.status
+            "INSERT INTO reservations (id_user, date) VALUES (?,?)",
+            reservation.id_user,
+            reservation.date
         );
         return await this.getById(result.lastID);
     }
 
-    async update(id_reservation, reservation) {
+    async update(id_reservation, reservations) {
         const result = await database().run(
-            "UPDATE reservation SET capacity = ?, status = ? WHERE id_reservation = ?",
-            reservation.capacity, reservation.status, id_reservation
+            "UPDATE reservations SET capacity = ?, status = ?,id_user =? WHERE id_reservation = ?",
+            reservations.capacity, reservations.status, reservations.id_user,id_reservation
         );
 
         if (result.changes === 0) {
@@ -43,7 +43,7 @@ class ReservationService {
 
     async delete(id_reservation) {
         await database().run(
-            "DELETE FROM reservation WHERE id_reservation = ?",
+            "DELETE FROM reservations WHERE id_reservation = ?",
             id_reservation
         );
     }

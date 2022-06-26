@@ -1,0 +1,117 @@
+### Homepage
+
+GET http://localhost:3000
+
+<> 2022-02-21T145148.200.html
+<> 2022-02-21T105431.200.html
+<> 2022-02-21T105410.200.html
+<> 2022-02-21T105405.200.html
+
+### All articles
+
+GET http://localhost:3000/reservations?order=status
+
+<> 2022-02-21T150421.200.json
+<> 2022-02-21T150411.200.json
+<> 2022-02-21T145911.200.json
+<> 2022-02-21T145708.200.json
+<> 2022-02-21T145641.200.json
+<> 2022-02-21T145521.200.json
+<> 2022-02-21T145515.200.json
+<> 2022-02-21T145457.200.json
+<> 2022-02-21T145443.200.json
+<> 2022-02-21T145434.200.json
+<> 2022-02-21T145402.200.json
+<> 2022-02-21T145351.200.json
+<> 2022-02-21T145150.200.json
+<> 2022-02-21T144037.200.json
+<> 2022-02-21T104921.200.json
+
+### Fetch Existing article
+
+GET http://localhost:3000/reservations/1
+Accept: application/json
+
+<> 2022-02-21T143810.200.json
+<> 2022-02-21T105334.200.json
+<> 2022-02-21T105316.404.html
+<> 2022-02-21T105230.404.html
+<> 2022-02-21T105214.404.html
+<> 2022-02-21T105147.404.html
+
+
+### Fetch Nonexisting article
+
+GET http://localhost:3000/reservations/33
+
+<> 2022-02-21T143807.404.html
+<> 2022-02-21T105352.404.html
+<> 2022-02-21T105126.404.html
+<> 2022-02-21T105023.400.html
+
+### Create New Article
+
+POST http://localhost:3000/reservations
+Content-Type: application/json
+
+{
+  "date":1656249596000,
+  "id_user": 3
+
+}
+
+<> 2022-02-21T145145.201.json
+<> 2022-02-21T145139.400.html
+<> 2022-02-21T145134.400.html
+<> 2022-02-21T145126.400.html
+<> 2022-02-21T144818.201.json
+<> 2022-02-21T144812.201.json
+<> 2022-02-21T144646.201.json
+<> 2022-02-21T144638.400.html
+<> 2022-02-21T144542.500.html
+<> 2022-02-21T144539.500.html
+<> 2022-02-21T144507.500.html
+<> 2022-02-21T144436.500.html
+
+### Update existing article
+
+PUT http://localhost:3000/reservations/2
+Content-Type: application/json
+
+{
+  "capacity": 3,
+  "status": "Ready",
+  "id_user": "2,3,5"
+}
+
+<> 2022-02-21T150556.202.json
+
+### Update nonexisting article
+
+PUT http://localhost:3000/reservations/33
+Content-Type: application/json
+
+{
+  "capacity": "Modified title",
+  "status": "Modified text"
+}
+
+<> 2022-02-21T150553.404.html
+<> 2022-02-21T150506.500.html
+<> 2022-02-21T150430.400.html
+<> 2022-02-21T150418.202.json
+<> 2022-02-21T150403.202.json
+
+### Delete Existing article
+
+DELETE http://localhost:3000/reservations/1
+Accept: application/json
+
+### Delete Nonexisting article
+
+DELETE http://localhost:3000/flights/133
+Accept: application/json
+
+<> 2022-02-21T144029.404.html
+
+

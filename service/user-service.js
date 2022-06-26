@@ -43,19 +43,19 @@ class UserService {
             username
         );
     }
-    generateToken(user) {
-        const tokenPayload = {
-            username: user.username,
-            role: user.role
-        };
-        return jwt.sign(
-            tokenPayload,
-            jwtConfig.secret,
-            {
-                algorithm: jwtConfig.algorithms[0]
-            }
-        );
-    }
+    //generateToken(user) {
+    //    const tokenPayload = {
+    //        username: user.username,
+    //        role: user.role
+    //    };
+    //    return jwt.sign(
+    //        tokenPayload,
+    //        jwtConfig.secret,
+    //        {
+    //            algorithm: jwtConfig.algorithms[0]
+    //        }
+    //    );
+    //}
 
     hashPassword(password) {
         return crypto.pbkdf2Sync(
