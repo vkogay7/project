@@ -7,7 +7,7 @@ GET http://localhost:3000
 <> 2022-02-21T105410.200.html
 <> 2022-02-21T105405.200.html
 
-### All articles
+### All Fligts
 
 GET http://localhost:3000/flights?order=status
 
@@ -27,7 +27,7 @@ GET http://localhost:3000/flights?order=status
 <> 2022-02-21T144037.200.json
 <> 2022-02-21T104921.200.json
 
-### Fetch Existing article
+### Fetch Existing Flight
 
 GET http://localhost:3000/flights/2
 Accept: application/json
@@ -40,7 +40,7 @@ Accept: application/json
 <> 2022-02-21T105147.404.html
 
 
-### Fetch Nonexisting article
+### Fetch Nonexisting flight
 
 GET http://localhost:3000/flights/33
 
@@ -49,14 +49,15 @@ GET http://localhost:3000/flights/33
 <> 2022-02-21T105126.404.html
 <> 2022-02-21T105023.400.html
 
-### Create New Article
+### Create New Flight
 
 POST http://localhost:3000/flights
 Content-Type: application/json
 
 {
-  "status": "ahoj",
-  "capacity": 3
+  "status": "Prepared",
+  "capacity": 5,
+  "id_user" : "5,2,3"
 }
 
 <> 2022-02-21T145145.201.json
@@ -72,14 +73,15 @@ Content-Type: application/json
 <> 2022-02-21T144507.500.html
 <> 2022-02-21T144436.500.html
 
-### Update existing article
+### Update existing flight
 
 PUT http://localhost:3000/flights/2
 Content-Type: application/json
 
 {
   "capacity": 1,
-  "status": "Modified text"
+  "status": "Modified text",
+  "id_user": 5
 }
 
 <> 2022-02-21T150556.202.json
@@ -102,7 +104,7 @@ Content-Type: application/json
 
 ### Delete Existing article
 
-DELETE http://localhost:3000/flights/1
+DELETE http://localhost:3000/flights/2
 Accept: application/json
 
 ### Delete Nonexisting article

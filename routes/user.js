@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
 //Everyone
 router.get('/:username', async (req, res) => {
-    const username = parseInt(req.params.username);
+    const username = (req.params.username);
     const user = await userService.getByUsername(username);
 
     if (user) {
@@ -22,36 +22,42 @@ router.get('/:username', async (req, res) => {
 
 //LOGIN
 router.post('/login', async (req, res) => {
-    // TODO
-    // 1. verify input data, throw 400 if something is missing
-    // 2. compare the password to the hash stored in the database, throw 401 or 403 if credentials incorrect
-    const { username, password } = req.body
-    try {
-        const username = req.body.username;
-        const user = await userService.getByUsername({username})
-        if (!user) {
-            res.status(401).json({
-                message: "Login not successful",
-                error: "User not found",
-            })
-        } else {
-            res.status(200).json({
-                message: "Login successful",
-                user,
-            })
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: "An error occurred",
-            error: error.message,
-        })
-    }
+    //// TODO
+    //// 1. verify input data, throw 400 if something is missing
+    //// 2. compare the password to the hash stored in the database, throw 401 or 403 if credentials incorrect
+    //const { username} = req.body
+    //try {
+    //    const username = req.body.username;
+    //    const user = await userService.getByUsername({username})
+    //    const hash = userService.hashPassword(req.body.password);
+    //    if (!user) {
+    //        res.status(401).json({
+    //            message: "Login not successful",
+    //            error: "User not found",
+    //        })
+    //    } else {
+    //        res.status(200).json({
+    //            message: "Login successful",
+    //            user,
+    //        })
+    //    }
+    //} catch (error) {
+    //    res.status(400).json({
+    //        message: "An error occurred",
+    //        error: error.message,
+    //    })
+    //}
+    //if (!username || !password) {
+    //    return res.status(400).json({
+    //        message: "Username or Password not present",
+    //    })
+    //}
+    //const user = await userService.getByUsername(req.body.username);
+    //const response = {
+    //    token: userService.generateToken(user)
+    //};
 
-    if (!username || !password) {
-        return res.status(400).json({
-            message: "Username or Password not present",
-        })
-    }
+    //res.status(201).json(response)
     const user = await userService.getByUsername(req.body.username);
     const response = {
         token: userService.generateToken(user)
@@ -88,24 +94,24 @@ router.post('/', async (req, res) => {
 })
 
 //Secretary (passenger id) Technician(capacity,status)
-router.put('/:username', async (req, res) => {
+router.put('/:id_user', async (req, res) => {
     const data = req.body;
-    const username = parseInt(req.params.username);
+    const id_user = parseInt(req.params.id_user);
 
 
-    const user = await userService.update(id, data); //TODO
+    const user = await userService.updateUser(id_user,data); //TODO
 
-    if (!flight) {
+    if (!user) {
         res.status(404).send("Not found")
         return;
     }
 
-    res.status(202).json(flight);
+    res.status(202).json(user);
 })
 
 router.delete('/:username', async (req, res) => {
-    const username = parseInt(req.params.username);
-    await userService.deleteUser(username); //TODO
+    const username = (req.params.username);
+    await userService.deleteUser(username);
     res.status(204).send("No Content");
 })
 

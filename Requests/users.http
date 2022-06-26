@@ -7,14 +7,14 @@ GET http://localhost:3000
 <> 2022-02-21T105410.200.html
 <> 2022-02-21T105405.200.html
 
-### All articles
+### All users
 
 GET http://localhost:3000/users?order=status
 
 
-### Fetch Existing article
+### Fetch Existing user
 
-GET http://localhost:3000/users/first
+GET http://localhost:3000/users/admin
 
 Accept: application/json
 
@@ -41,7 +41,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "username": "ivo",
+  "username": "ex1",
   "password": "heslo",
   "role" : "admin"
 }
@@ -60,25 +60,14 @@ Content-Type: application/json
 
 ### Update existing article
 
-PUT http://localhost:3000/flights/2
+PUT http://localhost:3000/users/10
 Content-Type: application/json
 
 {
-  "capacity": 1,
-  "status": "Modified text"
+  "username": "modified_username"
 }
 
-<> 2022-02-21T150556.202.json
 
-### Update nonexisting article
-
-PUT http://localhost:3000/flights/33
-Content-Type: application/json
-
-{
-  "capacity": "Modified title",
-  "status": "Modified text"
-}
 
 <> 2022-02-21T150553.404.html
 <> 2022-02-21T150506.500.html
@@ -86,16 +75,22 @@ Content-Type: application/json
 <> 2022-02-21T150418.202.json
 <> 2022-02-21T150403.202.json
 
-### Delete Existing article
+### Delete Existing User by Username
 
-DELETE http://localhost:3000/users/forth
+DELETE http://localhost:3000/users/iv1o
 Accept: application/json
 
-### Delete Nonexisting article
-
-DELETE http://localhost:3000/flights/133
-Accept: application/json
 
 <> 2022-02-21T144029.404.html
+
+### login
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "username": "ivo",
+  "password": "heslo"
+}
+
 
 

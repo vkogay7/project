@@ -7,7 +7,7 @@ GET http://localhost:3000
 <> 2022-02-21T105410.200.html
 <> 2022-02-21T105405.200.html
 
-### All articles
+### All reservations
 
 GET http://localhost:3000/reservations?order=status
 
@@ -27,9 +27,9 @@ GET http://localhost:3000/reservations?order=status
 <> 2022-02-21T144037.200.json
 <> 2022-02-21T104921.200.json
 
-### Fetch Existing article
+### Fetch Existing reservation
 
-GET http://localhost:3000/reservations/1
+GET http://localhost:3000/reservations/2
 Accept: application/json
 
 <> 2022-02-21T143810.200.json
@@ -55,7 +55,7 @@ POST http://localhost:3000/reservations
 Content-Type: application/json
 
 {
-  "date":1656249596000,
+  "date":16562435300,
   "id_user": 3
 
 }
@@ -80,7 +80,7 @@ Content-Type: application/json
 
 {
   "capacity": 3,
-  "status": "Ready",
+  "status": "OK",
   "id_user": "2,3,5"
 }
 
@@ -102,14 +102,14 @@ Content-Type: application/json
 <> 2022-02-21T150418.202.json
 <> 2022-02-21T150403.202.json
 
-### Delete Existing article
+### Delete Existing reservation
 
-DELETE http://localhost:3000/reservations/1
+DELETE http://localhost:3000/reservations/3
 Accept: application/json
 
-### Delete Nonexisting article
+### Delete Nonexisting reseration
 
-DELETE http://localhost:3000/flights/133
+DELETE http://localhost:3000/reservations/133
 Accept: application/json
 
 <> 2022-02-21T144029.404.html
