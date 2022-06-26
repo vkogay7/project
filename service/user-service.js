@@ -1,9 +1,7 @@
 const {database} = require("../database/database");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-const {genSaltSync, hashSync} = require("bcrypt");
-const req = require("express/lib/request");
-const bcrypt = require("bcrypt");
+const {passwordConfig, jwtConfig} = require("../config");
 
 class UserService {
 
@@ -23,23 +21,26 @@ class UserService {
         );
     }
 
-    async createUser(user){
-
-        const salt = genSaltSync(10);
-        //const password = bcrypt.hashSync(req.body.password, salt)
+    async register(user) {
+        const hash = this.hashPassword(user.password);
         const result = await database().run(
-            "INSERT INTO users (username, password, role) VALUES (?,?,?)",
-            user.username,
-            user.password,
-            user.role
+            "INSERT INTO users (username, password, role) VALUES (?, ?,?)",
+            user.username, hash, user.role
         );
-        return await this.getByUsername(result.lastID);
-        };
+        return await this.getById(result.lastID);
+    }
+
+    async getById(id) {
+        return await database().get(
+            "SELECT * FROM users WHERE id_user = ?",
+            id
+        );
+    }
 
     async deleteUser(username){
         await database().run(
-            "DELETE FROM users WHERE id_user = ?",
-            id_user
+            "DELETE FROM users WHERE username = ?",
+            username
         );
     }
     generateToken(user) {

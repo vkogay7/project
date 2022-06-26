@@ -35,17 +35,16 @@ GET http://localhost:3000/flights/33
 <> 2022-02-21T105126.404.html
 <> 2022-02-21T105023.400.html
 
-### Create New Article
+### Register
 
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "username": "forth",
-  "password": "qwe",
-  "role": "user"
+  "username": "ivo",
+  "password": "heslo",
+  "role" : "admin"
 }
-
 <> 2022-02-21T145145.201.json
 <> 2022-02-21T145139.400.html
 <> 2022-02-21T145134.400.html
@@ -89,7 +88,7 @@ Content-Type: application/json
 
 ### Delete Existing article
 
-DELETE http://localhost:3000/
+DELETE http://localhost:3000/users/forth
 Accept: application/json
 
 ### Delete Nonexisting article
